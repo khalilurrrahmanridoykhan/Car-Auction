@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test Case Flow</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: white;
+      }
+      .mermaid {
+        background: white;
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Testing Process Flow - Chapter 6</h2>
+    <div class="mermaid">
+      flowchart TD A[Start Testing] --> B[Define Test Objectives] B -->
+      C[Identify Test Scope] C --> D[Create Test Plan] D --> E{Test Categories}
+      E -->|Functional Testing| F[Authentication Tests] F --> F1[Test User
+      Registration] F1 --> F2[Test User Login] F2 --> F3[Test Admin Login] F3
+      --> F4[Test Session Management] E -->|Functional Testing| G[Auction
+      Management Tests] G --> G1[Test Create Auction] G1 --> G2[Test Edit
+      Auction] G2 --> G3[Test Delete Auction] G3 --> G4[Test View Auction] E
+      -->|Functional Testing| H[Bidding Tests] H --> H1[Test Place Bid] H1 -->
+      H2[Test Bid Validation] H2 --> H3[Test Real-time Updates] H3 --> H4[Test
+      Auction End] E -->|Non-Functional| I[Security Testing] I --> I1[Test SQL
+      Injection] I1 --> I2[Test XSS Prevention] I2 --> I3[Test Password
+      Security] I3 --> I4[Test File Upload Security] E -->|Non-Functional|
+      J[Performance Testing] J --> J1[Test Page Load Time] J1 --> J2[Test
+      Database Query Speed] J2 --> J3[Test AJAX Response Time] J3 --> J4[Test
+      Concurrent Users] E -->|Non-Functional| K[Usability Testing] K --> K1[Test
+      Navigation] K1 --> K2[Test Responsive Design] K2 --> K3[Test Form
+      Validation] K3 --> K4[Test Error Messages] F4 --> L{Execute Tests} G4 -->
+      L H4 --> L I4 --> L J4 --> L K4 --> L L --> M[Record Test Results] M -->
+      N{Test Result} N -->|Pass| O[Mark as Passed] N -->|Fail| P[Log Defect] P
+      --> Q[Assign to Developer] Q --> R[Fix Issue] R --> S[Retest] S --> L O
+      --> T{All Tests Complete?} T -->|No| L T -->|Yes| U[Generate Test Report]
+      U --> V[Calculate Pass Rate] V --> W[Document Findings] W --> X{Pass Rate
+      >= 95%?} X -->|No| Y[Identify Critical Issues] Y --> Z[Plan Additional
+      Testing] Z --> L X -->|Yes| AA[Approve for Deployment] AA --> AB[Create
+      Test Summary] AB --> AC[End Testing] style A fill:#90EE90 style O
+      fill:#87CEEB style P fill:#FFA07A style AA fill:#FFD700 style AC
+      fill:#FFB6C1
+    </div>
+
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        flowchart: {
+          useMaxWidth: true,
+          htmlLabels: true,
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Workflow Diagram</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: white;
+      }
+      .mermaid {
+        background: white;
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Admin Panel Workflow Diagram</h2>
+    <div class="mermaid">
+      flowchart TD A[Admin Login] --> B{Validate Credentials} B -->|Invalid|
+      C[Show Error] C --> A B -->|Valid| D[Generate Admin Token] D --> E[Create
+      Session] E --> F[Admin Dashboard] F --> G{Select Action} G -->|View
+      Statistics| H[Dashboard Home] H --> I[Fetch Total Users] I --> J[Fetch
+      Total Cars] J --> K[Fetch Active Auctions] K --> L[Fetch Ended Auctions] L
+      --> M[Auto Refresh Every 2s] M --> I G -->|Manage Users| N[Users
+      Management] N --> O[Display All Users] O --> P{User Action} P -->|View
+      Profile| Q[Show User Details] P -->|Verify User| R[View Verification Docs]
+      R --> S{Approve/Reject} S -->|Approve| T[Update Status to Verified] S
+      -->|Reject| U[Keep Status Pending] P -->|Ban User| V{Confirm Ban} V
+      -->|Yes| W[Update Status to Banned] V -->|No| O T --> X[Send Notification]
+      W --> Y[Log Admin Action] G -->|Manage Auctions| Z[Auctions Management] Z
+      --> AA[Display All Auctions] AA --> AB{Filter By Status} AB -->|Active|
+      AC[Show Active Auctions] AB -->|Ended| AD[Show Ended Auctions] AB -->|All|
+      AE[Show All Auctions] AC --> AF{Auction Action} AF -->|View Details|
+      AG[Show Full Auction Info] AF -->|Cancel| AH{Confirm Cancel} AH -->|Yes|
+      AI[Update Status to Cancelled] AH -->|No| AC G -->|View Reports|
+      AJ[Reports Management] AJ --> AK[Display All Reports] AK --> AL{Report
+      Action} AL -->|View Details| AM[Show Report Content] AM --> AN{Take
+      Action} AN -->|Warning| AO[Send Warning to User] AN -->|Ban| AP[Ban
+      Reported User] AN -->|Dismiss| AQ[Mark Report as Resolved] G -->|Logout|
+      AR[Clear Session] AR --> AS[Redirect to Login] X --> AT[End] Y --> AT AI
+      --> AT AO --> AT AP --> AT AQ --> AT AS --> AT style A fill:#90EE90 style
+      D fill:#87CEEB style E fill:#87CEEB style T fill:#87CEEB style W
+      fill:#FFA07A style AI fill:#FFA07A style AP fill:#FFA07A style AT
+      fill:#FFB6C1
+    </div>
+
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        flowchart: {
+          useMaxWidth: true,
+          htmlLabels: true,
+        },
+      });
+    </script>
+  </body>
+</html>

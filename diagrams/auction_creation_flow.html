@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Auction Creation Flow</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: white;
+      }
+      .mermaid {
+        background: white;
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Auction Creation Flow Diagram</h2>
+    <div class="mermaid">
+      flowchart TD A[Start: User Clicks Create Auction] --> B{Check
+      Authentication} B -->|Not Logged In| C[Redirect to Login] B -->|Logged In|
+      D[Display Creation Form] D --> E[Section 1: Basic Information] E -->
+      F[Enter Car Title] F --> G[Enter Description] G --> H[Upload Thumbnail
+      Image] H --> I[Upload Multiple Car Images] I --> J[Section 2: Technical
+      Specs] J --> K[Select Make/Model/Year] K --> L[Select Body Type] L -->
+      M[Select Transmission Type] M --> N[Select Fuel Type] N --> O[Enter Engine
+      Capacity] O --> P[Enter Mileage] P --> Q[Section 3: Legal Details] Q -->
+      R[Enter Registration Number] R --> S[Enter Registration Year] S -->
+      T[Select Ownership Status] T --> U[Set Tax Token Validity] U --> V[Set
+      Fitness Validity] V --> W[Set Insurance Validity] W --> X[Section 4:
+      Condition & History] X --> Y[Select Accident History] Y --> Z[Select
+      Service History] Z --> AA[Select Car Condition] AA --> AB[Section 5:
+      Auction Info] AB --> AC[Enter Starting Price] AC --> AD[Select Auction
+      Location] AD --> AE[Set Start Time] AE --> AF[Set End Time] AF -->
+      AG[Submit Form] AG --> AH{Validate All Fields} AH -->|Invalid| AI[Show
+      Validation Errors] AI --> D AH -->|Valid| AJ[Process Thumbnail Upload] AJ
+      --> AK{Image Valid?} AK -->|No| AL[Show Image Error] AL --> H AK -->|Yes|
+      AM[Compress Thumbnail to 100KB] AM --> AN[Save Thumbnail] AN -->
+      AO[Process Car Images] AO --> AP[Loop Through Each Image] AP -->
+      AQ[Validate Image] AQ --> AR[Compress Image] AR --> AS[Save to car_images
+      folder] AS --> AT{More Images?} AT -->|Yes| AP AT -->|No| AU[Insert Car
+      Data into Database] AU --> AV[Get car_id] AV --> AW[Insert Auction Data]
+      AW --> AX[Insert Car Image Records] AX --> AY{Transaction Success?} AY
+      -->|No| AZ[Rollback & Show Error] AZ --> D AY -->|Yes| BA[Commit
+      Transaction] BA --> BB[Show Success Message] BB --> BC[Redirect to Manage
+      Auctions] BC --> BD[End] C --> BD style A fill:#90EE90 style BA
+      fill:#87CEEB style BB fill:#87CEEB style AI fill:#FFA07A style AL
+      fill:#FFA07A style AZ fill:#FFA07A style BD fill:#FFB6C1
+    </div>
+
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        flowchart: {
+          useMaxWidth: true,
+          htmlLabels: true,
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Technology Stack Diagram</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: white;
+      }
+      .mermaid {
+        background: white;
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Technology Stack - Online Car Bidding System</h2>
+    <div class="mermaid">
+      graph TB subgraph "Frontend Layer" A1[HTML5] A2[CSS3] A3[Bootstrap 5.3]
+      A4[JavaScript ES6+] A5[jQuery 3.6] A6[AJAX] A7[OwlCarousel2] A8[Bootstrap
+      Icons] end subgraph "Backend Layer" B1[PHP 8.2.12] B2[PDO - PHP Data
+      Objects] B3[Session Management] B4[File Upload Handler] B5[Image
+      Processing - GD Library] B6[Password Hashing] B7[Input Validation] end
+      subgraph "Database Layer" C1[(MySQL/MariaDB 10.4)] C2[Users Table] C3[Cars
+      Table] C4[Auctions Table] C5[Bids Table] C6[Car Images Table] C7[Reports
+      Table] end subgraph "Server Layer" D1[Apache Web Server 2.4+]
+      D2[XAMPP/LAMP Stack] D3[mod_rewrite] D4[.htaccess] end subgraph "Security
+      Layer" E1[SQL Injection Prevention] E2[XSS Protection] E3[CSRF Token]
+      E4[Password Encryption] E5[Session Security] E6[File Upload Validation]
+      end subgraph "File Storage" F1[/uploads/users/] F2[/uploads/thumbnails/]
+      F3[/uploads/car_images/] F4[/uploads/documents/] end A1 --> B1 A2 --> B1
+      A3 --> B1 A4 --> B1 A5 --> B1 A6 --> B1 A7 --> B1 B1 --> B2 B2 --> C1 B1
+      --> B3 B1 --> B4 B4 --> B5 B1 --> B6 B1 --> B7 C1 --> C2 C1 --> C3 C1 -->
+      C4 C1 --> C5 C1 --> C6 C1 --> C7 B1 --> D1 D1 --> D2 D1 --> D3 D1 --> D4
+      B1 --> E1 B1 --> E2 B1 --> E3 B1 --> E4 B1 --> E5 B4 --> E6 B4 --> F1 B4
+      --> F2 B4 --> F3 B4 --> F4 style A1 fill:#e1f5ff style A2 fill:#e1f5ff
+      style A3 fill:#e1f5ff style B1 fill:#ffe1e1 style B2 fill:#ffe1e1 style C1
+      fill:#e1ffe1 style D1 fill:#fff4e1 style E1 fill:#ffe1f5 style E4
+      fill:#ffe1f5
+    </div>
+
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        flowchart: {
+          useMaxWidth: true,
+          htmlLabels: true,
+        },
+      });
+    </script>
+  </body>
+</html>

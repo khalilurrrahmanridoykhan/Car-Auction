@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Authentication Flow</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: white;
+      }
+      .mermaid {
+        background: white;
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>User Authentication Flow Diagram</h2>
+    <div class="mermaid">
+      flowchart TD A[Start] --> B{User Registered?} B -->|No| C[Go to Signup
+      Page] B -->|Yes| D[Go to Signin Page] C --> E[Fill Registration Form] E
+      --> F[Enter Full Name] F --> G[Enter Username] G --> H[Enter Email] H -->
+      I[Enter Phone Number] I --> J[Select Location] J --> K[Upload Profile
+      Picture] K --> L[Enter Password] L --> M[Confirm Password] M -->
+      N{Validate Input} N -->|Invalid| O[Show Error Message] O --> E N
+      -->|Valid| P{Check Duplicate} P -->|Exists| Q[Show Duplicate Error] Q -->
+      E P -->|Unique| R[Hash Password] R --> S[Compress Profile Image] S -->
+      T[Save to Database] T --> U[Redirect to Login] U --> D D --> V[Enter
+      Email] V --> W[Enter Password] W --> X{Check Credentials} X -->|Admin|
+      Y[Verify Admin Token] Y --> Z[Create Admin Session] Z --> AA[Redirect to
+      Admin Panel] X -->|User| AB{Valid Credentials?} AB -->|No| AC[Show Error]
+      AC --> D AB -->|Yes| AD{Check Profile Status} AD -->|Banned| AE[Redirect
+      to Profile] AD -->|Active| AF[Create User Session] AF --> AG[Set Session
+      Variables] AG --> AH[Redirect to Homepage] AA --> AI[End] AE --> AI AH -->
+      AI style A fill:#90EE90 style AI fill:#FFB6C1 style T fill:#87CEEB style
+      AF fill:#87CEEB style Z fill:#87CEEB style AC fill:#FFA07A style O
+      fill:#FFA07A style Q fill:#FFA07A
+    </div>
+
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        flowchart: {
+          useMaxWidth: true,
+          htmlLabels: true,
+        },
+      });
+    </script>
+  </body>
+</html>

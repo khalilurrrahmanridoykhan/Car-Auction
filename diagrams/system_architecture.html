@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>System Architecture Diagram</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: white;
+      }
+      .mermaid {
+        background: white;
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>System Architecture - Online Car Bidding System</h2>
+    <div class="mermaid">
+      graph TB subgraph "Client Layer" A[Web Browser] B[Mobile Browser] end
+      subgraph "Presentation Layer" C[HTML/CSS/Bootstrap] D[JavaScript/jQuery]
+      E[AJAX] end subgraph "Application Layer" F[PHP Application Server]
+      G[Authentication Module] H[Auction Management] I[Bidding Engine] J[User
+      Management] K[Admin Panel] L[Search Module] end subgraph "API Layer"
+      M[Create APIs] N[Read APIs] O[Update APIs] P[Delete APIs] end subgraph
+      "Data Layer" Q[(MySQL Database)] R[Users Table] S[Cars Table] T[Auctions
+      Table] U[Bids Table] V[Reports Table] end subgraph "File Storage" W[User
+      Uploads] X[Car Images] Y[Thumbnails] Z[Documents] end A --> C B --> C C
+      --> D D --> E E --> F F --> G F --> H F --> I F --> J F --> K F --> L G
+      --> M G --> N H --> M H --> N I --> M I --> N J --> O K --> P L --> N M
+      --> Q N --> Q O --> Q P --> Q Q --> R Q --> S Q --> T Q --> U Q --> V F
+      --> W W --> X W --> Y W --> Z style A fill:#e1f5ff style B fill:#e1f5ff
+      style F fill:#ffe1e1 style Q fill:#e1ffe1 style W fill:#fff4e1
+    </div>
+
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        flowchart: {
+          useMaxWidth: true,
+          htmlLabels: true,
+          curve: "basis",
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bidding Flow Diagram</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: white;
+      }
+      .mermaid {
+        background: white;
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Real-Time Bidding Flow Diagram</h2>
+    <div class="mermaid">
+      flowchart TD A[User Visits Auction Page] --> B[Load Auction Details] B -->
+      C[Display Car Information] C --> D[Show Current Highest Bid] D -->
+      E[Display Bid History] E --> F{User Action} F -->|View Only|
+      G[Auto-Refresh Every 3s] G --> H[Fetch Latest Bid] H --> I[Update Highest
+      Bid] I --> J[Refresh Bid History] J --> G F -->|Place Bid| K{User Logged
+      In?} K -->|No| L[Redirect to Login] K -->|Yes| M{Auction Owner?} M
+      -->|Yes| N[Show Error: Cannot Bid on Own Auction] M -->|No| O[Enter Bid
+      Amount] O --> P{Choose Method} P -->|Quick Bid| Q[Click +500/+1000/+1500]
+      P -->|Custom| R[Enter Custom Amount] Q --> S[Calculate New Bid] R --> S S
+      --> T[Submit Bid via AJAX] T --> U{Validate Bid} U -->|Amount Too Low|
+      V[Show Error: Bid Too Low] V --> O U -->|Valid| W[Insert into Bids Table]
+      W --> X[Update Current Highest Bid] X --> Y[Return Success Response] Y -->
+      Z[Update UI Without Reload] Z --> AA[Show Success Message] AA --> AB[Clear
+      Input Field] AB --> AC[Refresh Bid History] AC --> AD[Update Highest Bid
+      Display] AD --> AE{Auction Ended?} AE -->|Yes| AF[Redirect to Result Page]
+      AE -->|No| G AF --> AG[Display Winner] AG --> AH{Is Winner?} AH -->|Yes|
+      AI[Show Payment Option] AH -->|No| AJ[Show Auction Result] AI --> AK[End]
+      AJ --> AK L --> AK N --> AK style A fill:#90EE90 style W fill:#87CEEB
+      style X fill:#87CEEB style Y fill:#87CEEB style V fill:#FFA07A style N
+      fill:#FFA07A style AG fill:#FFD700 style AK fill:#FFB6C1
+    </div>
+
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        flowchart: {
+          useMaxWidth: true,
+          htmlLabels: true,
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Use Case Diagram</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: white;
+      }
+      .mermaid {
+        background: white;
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>System Use Case Diagram</h2>
+    <div class="mermaid">
+      graph TB subgraph "Online Car Bidding System" UC1[Register Account]
+      UC2[Login to System] UC3[Update Profile] UC4[Create Auction] UC5[Edit
+      Auction] UC6[Delete Auction] UC7[Search Auctions] UC8[View Auction
+      Details] UC9[Place Bid] UC10[View Bid History] UC11[Upload Verification]
+      UC12[Report Issue] UC13[Manage Users] UC14[Verify Users] UC15[View
+      Reports] UC16[View Dashboard] UC17[Ban Users] UC18[Monitor Auctions] end
+      User((User/Bidder)) Seller((Seller)) Admin((Admin)) User --> UC1 User -->
+      UC2 User --> UC3 User --> UC7 User --> UC8 User --> UC9 User --> UC10 User
+      --> UC11 User --> UC12 Seller --> UC2 Seller --> UC3 Seller --> UC4 Seller
+      --> UC5 Seller --> UC6 Seller --> UC7 Seller --> UC8 Seller --> UC11 Admin
+      --> UC2 Admin --> UC13 Admin --> UC14 Admin --> UC15 Admin --> UC16 Admin
+      --> UC17 Admin --> UC18 UC9 -.includes.-> UC2 UC4 -.includes.-> UC2 UC5
+      -.includes.-> UC2 UC12 -.includes.-> UC2 UC14 -.extends.-> UC13 UC17
+      -.extends.-> UC13 style User fill:#87CEEB style Seller fill:#90EE90 style
+      Admin fill:#FFB6C1 style UC1 fill:#fff4e1 style UC2 fill:#fff4e1 style UC4
+      fill:#e1ffe1 style UC9 fill:#e1f5ff style UC13 fill:#ffe1f5
+    </div>
+
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        flowchart: {
+          useMaxWidth: true,
+          htmlLabels: true,
+        },
+      });
+    </script>
+  </body>
+</html>

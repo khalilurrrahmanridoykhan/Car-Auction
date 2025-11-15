@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Diagrams - Online Car Bidding System</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        text-align: center;
+        color: white;
+        margin-bottom: 40px;
+        font-size: 2.5em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .diagram-section {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .diagram-section h2 {
+        color: #667eea;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #667eea;
+      }
+
+      .chapter-tag {
+        display: inline-block;
+        background: #764ba2;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        margin-bottom: 15px;
+      }
+
+      .mermaid {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+
+      .download-btn {
+        background: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 15px;
+        font-size: 1em;
+      }
+
+      .download-btn:hover {
+        background: #218838;
+      }
+
+      .instructions {
+        background: #fff3cd;
+        border: 2px solid #ffc107;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+
+      .instructions h3 {
+        color: #856404;
+        margin-bottom: 10px;
+      }
+
+      .instructions ol {
+        margin-left: 20px;
+        color: #856404;
+      }
+
+      .instructions li {
+        margin-bottom: 8px;
+      }
+
+      @media print {
+        body {
+          background: white;
+        }
+        .instructions,
+        .download-btn {
+          display: none;
+        }
+        .diagram-section {
+          page-break-inside: avoid;
+          page-break-after: always;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📊 Online Car Bidding System - All Diagrams</h1>
+
+      <div class="instructions">
+        <h3>🎯 How to Save Diagrams as PNG:</h3>
+        <ol>
+          <li>
+            <strong>Wait 3 seconds</strong> for all diagrams to fully render
+          </li>
+          <li>
+            <strong>Right-click</strong> on any diagram → Inspect Element (or
+            press F12)
+          </li>
+          <li>
+            In DevTools, find the
+            <code>&lt;div class="mermaid"&gt;</code> element
+          </li>
+          <li>
+            <strong>Right-click</strong> on the element → "Capture node
+            screenshot"
+          </li>
+          <li>
+            <strong>Save</strong> with the appropriate name (listed below each
+            diagram)
+          </li>
+          <li>
+            <strong>Alternative:</strong> Use browser extensions like
+            "GoFullPage" or take manual screenshots
+          </li>
+        </ol>
+      </div>
+
+      <!-- Diagram 1: System Architecture -->
+      <div class="diagram-section" id="diagram1">
+        <span class="chapter-tag">Chapter 5: Implementation</span>
+        <h2>1. System Architecture Diagram</h2>
+        <p><strong>Save as:</strong> system_architecture.png</p>
+        <div class="mermaid">
+          graph TB subgraph "Client Layer" A[Web Browser] B[Mobile Browser] end
+          subgraph "Presentation Layer" C[HTML/CSS/Bootstrap]
+          D[JavaScript/jQuery] E[AJAX] end subgraph "Application Layer" F[PHP
+          Application Server] G[Authentication Module] H[Auction Management]
+          I[Bidding Engine] J[User Management] K[Admin Panel] L[Search Module]
+          end subgraph "API Layer" M[Create APIs] N[Read APIs] O[Update APIs]
+          P[Delete APIs] end subgraph "Data Layer" Q[(MySQL Database)] R[Users
+          Table] S[Cars Table] T[Auctions Table] U[Bids Table] V[Reports Table]
+          end subgraph "File Storage" W[User Uploads] X[Car Images]
+          Y[Thumbnails] Z[Documents] end A --> C B --> C C --> D D --> E E --> F
+          F --> G F --> H F --> I F --> J F --> K F --> L G --> M G --> N H -->
+          M H --> N I --> M I --> N J --> O K --> P L --> N M --> Q N --> Q O
+          --> Q P --> Q Q --> R Q --> S Q --> T Q --> U Q --> V F --> W W --> X
+          W --> Y W --> Z style A fill:#e1f5ff style B fill:#e1f5ff style F
+          fill:#ffe1e1 style Q fill:#e1ffe1 style W fill:#fff4e1
+        </div>
+      </div>
+
+      <!-- Diagram 2: Technology Stack -->
+      <div class="diagram-section" id="diagram2">
+        <span class="chapter-tag">Chapter 5: Implementation</span>
+        <h2>2. Technology Stack Diagram</h2>
+        <p><strong>Save as:</strong> technology_stack.png</p>
+        <div class="mermaid">
+          graph TB subgraph "Frontend Layer" A1[HTML5] A2[CSS3] A3[Bootstrap
+          5.3] A4[JavaScript ES6+] A5[jQuery 3.6] A6[AJAX] A7[OwlCarousel2]
+          A8[Bootstrap Icons] end subgraph "Backend Layer" B1[PHP 8.2.12] B2[PDO
+          - PHP Data Objects] B3[Session Management] B4[File Upload Handler]
+          B5[Image Processing - GD Library] B6[Password Hashing] B7[Input
+          Validation] end subgraph "Database Layer" C1[(MySQL/MariaDB 10.4)]
+          C2[Users Table] C3[Cars Table] C4[Auctions Table] C5[Bids Table]
+          C6[Car Images Table] C7[Reports Table] end subgraph "Server Layer"
+          D1[Apache Web Server 2.4+] D2[XAMPP/LAMP Stack] D3[mod_rewrite]
+          D4[.htaccess] end A1 --> B1 A2 --> B1 A3 --> B1 A4 --> B1 A5 --> B1 A6
+          --> B1 B1 --> B2 B2 --> C1 B1 --> B3 B1 --> B4 B4 --> B5 C1 --> C2 C1
+          --> C3 C1 --> C4 C1 --> C5 C1 --> C6 B1 --> D1 D1 --> D2 style A1
+          fill:#e1f5ff style B1 fill:#ffe1e1 style C1 fill:#e1ffe1 style D1
+          fill:#fff4e1
+        </div>
+      </div>
+
+      <!-- Diagram 3: Database ER Diagram -->
+      <div class="diagram-section" id="diagram3">
+        <span class="chapter-tag">Chapter 5: Implementation</span>
+        <h2>3. Database Entity-Relationship Diagram</h2>
+        <p><strong>Save as:</strong> database_er_diagram.png</p>
+        <div class="mermaid">
+          erDiagram USERS ||--o{ CARS : owns USERS ||--o{ BIDS : places USERS
+          ||--o{ REPORTS : creates USERS ||--o{ AUCTIONS : wins CARS ||--||
+          AUCTIONS : "listed in" CARS ||--o{ CAR_IMAGES : has AUCTIONS ||--o{
+          BIDS : receives USERS { int id PK string full_name string user_name UK
+          string email UK string phone_number UK string profile_pic_url string
+          location string password enum profile_status timestamp created_at }
+          CARS { int id PK int user_id FK string title text description string
+          image_url string make string model year year enum body_type enum
+          transmission_type enum fuel_type int engine_capacity int mileage }
+          AUCTIONS { int id PK int car_id FK int user_id FK decimal start_price
+          string location datetime start_time datetime end_time decimal
+          current_highest_bid int buyer_id FK enum status } BIDS { int id PK int
+          auction_id FK int user_id FK decimal bid_amount int bid timestamp
+          created_at } CAR_IMAGES { int id PK int car_id FK string file_name
+          timestamp uploaded_at } REPORTS { int id PK int user_id FK int
+          auction_id FK text reason enum status }
+        </div>
+      </div>
+
+      <!-- Diagram 4: Use Case Diagram -->
+      <div class="diagram-section" id="diagram4">
+        <span class="chapter-tag">Chapter 5: Implementation</span>
+        <h2>4. System Use Case Diagram</h2>
+        <p><strong>Save as:</strong> use_case_diagram.png</p>
+        <div class="mermaid">
+          graph TB subgraph "Online Car Bidding System" UC1[Register Account]
+          UC2[Login to System] UC3[Update Profile] UC4[Create Auction] UC5[Edit
+          Auction] UC6[Delete Auction] UC7[Search Auctions] UC8[View Auction
+          Details] UC9[Place Bid] UC10[View Bid History] UC11[Upload
+          Verification] UC12[Report Issue] UC13[Manage Users] UC14[Verify Users]
+          UC15[View Reports] UC16[View Dashboard] UC17[Ban Users] UC18[Monitor
+          Auctions] end User((User/Bidder)) Seller((Seller)) Admin((Admin)) User
+          --> UC1 User --> UC2 User --> UC3 User --> UC7 User --> UC8 User -->
+          UC9 User --> UC10 User --> UC11 User --> UC12 Seller --> UC2 Seller
+          --> UC3 Seller --> UC4 Seller --> UC5 Seller --> UC6 Seller --> UC7
+          Seller --> UC8 Seller --> UC11 Admin --> UC2 Admin --> UC13 Admin -->
+          UC14 Admin --> UC15 Admin --> UC16 Admin --> UC17 Admin --> UC18 style
+          User fill:#87CEEB style Seller fill:#90EE90 style Admin fill:#FFB6C1
+        </div>
+      </div>
+
+      <!-- Diagram 5: User Authentication Flow -->
+      <div class="diagram-section" id="diagram5">
+        <span class="chapter-tag">Chapter 5: Implementation</span>
+        <h2>5. User Authentication Flow Diagram</h2>
+        <p><strong>Save as:</strong> user_authentication_flow.png</p>
+        <div class="mermaid">
+          flowchart TD A[Start] --> B{User Registered?} B -->|No| C[Go to Signup
+          Page] B -->|Yes| D[Go to Signin Page] C --> E[Fill Registration Form]
+          E --> F[Enter Personal Details] F --> G[Upload Profile Picture] G -->
+          H[Enter Password] H --> I{Validate Input} I -->|Invalid| J[Show Error]
+          J --> E I -->|Valid| K{Check Duplicate} K -->|Exists| L[Show Duplicate
+          Error] L --> E K -->|Unique| M[Hash Password] M --> N[Compress Image]
+          N --> O[Save to Database] O --> P[Redirect to Login] P --> D D -->
+          Q[Enter Credentials] Q --> R{Validate Credentials} R -->|Admin|
+          S[Create Admin Session] S --> T[Redirect to Admin Panel] R -->|User|
+          U{Profile Active?} U -->|Banned| V[Redirect to Profile] U -->|Active|
+          W[Create User Session] W --> X[Redirect to Homepage] T --> Y[End] V
+          --> Y X --> Y style A fill:#90EE90 style O fill:#87CEEB style W
+          fill:#87CEEB style J fill:#FFA07A style L fill:#FFA07A style Y
+          fill:#FFB6C1
+        </div>
+      </div>
+
+      <!-- Diagram 6: Auction Creation Flow -->
+      <div class="diagram-section" id="diagram6">
+        <span class="chapter-tag">Chapter 5: Implementation</span>
+        <h2>6. Auction Creation Flow Diagram</h2>
+        <p><strong>Save as:</strong> auction_creation_flow.png</p>
+        <div class="mermaid">
+          flowchart TD A[Start] --> B{Check Auth} B -->|Not Logged| C[Redirect
+          to Login] B -->|Logged In| D[Display Form] D --> E[Basic Information]
+          E --> F[Technical Specs] F --> G[Legal Details] G --> H[Condition &
+          History] H --> I[Auction Info] I --> J[Submit Form] J --> K{Validate}
+          K -->|Invalid| L[Show Error] L --> D K -->|Valid| M[Process Images] M
+          --> N[Compress Thumbnail] N --> O[Save Car Images] O --> P[Insert Car
+          Data] P --> Q[Insert Auction Data] Q --> R[Insert Image Records] R -->
+          S{Success?} S -->|No| T[Rollback] T --> L S -->|Yes| U[Show Success] U
+          --> V[Redirect to Manage] V --> W[End] C --> W style A fill:#90EE90
+          style U fill:#87CEEB style L fill:#FFA07A style W fill:#FFB6C1
+        </div>
+      </div>
+
+      <!-- Diagram 7: Bidding Flow -->
+      <div class="diagram-section" id="diagram7">
+        <span class="chapter-tag">Chapter 5: Implementation</span>
+        <h2>7. Real-Time Bidding Flow Diagram</h2>
+        <p><strong>Save as:</strong> bidding_flow.png</p>
+        <div class="mermaid">
+          flowchart TD A[Visit Auction Page] --> B[Load Auction Details] B -->
+          C[Display Current Bid] C --> D[Show Bid History] D --> E{User Action}
+          E -->|View| F[Auto-Refresh Every 3s] F --> G[Update Display] G --> F E
+          -->|Place Bid| H{Logged In?} H -->|No| I[Redirect to Login] H -->|Yes|
+          J{Auction Owner?} J -->|Yes| K[Show Error] J -->|No| L[Enter Bid
+          Amount] L --> M[Submit via AJAX] M --> N{Validate Bid} N -->|Too Low|
+          O[Show Error] O --> L N -->|Valid| P[Insert Bid] P --> Q[Update
+          Highest Bid] Q --> R[Return Success] R --> S[Update UI] S --> T[Show
+          Success Message] T --> U{Auction Ended?} U -->|Yes| V[Redirect to
+          Result] U -->|No| F V --> W{Winner?} W -->|Yes| X[Show Payment Option]
+          W -->|No| Y[Show Result] X --> Z[End] Y --> Z I --> Z K --> Z style A
+          fill:#90EE90 style P fill:#87CEEB style Q fill:#87CEEB style K
+          fill:#FFA07A style O fill:#FFA07A style Z fill:#FFB6C1
+        </div>
+      </div>
+
+      <!-- Diagram 8: Admin Workflow -->
+      <div class="diagram-section" id="diagram8">
+        <span class="chapter-tag">Chapter 5: Implementation</span>
+        <h2>8. Admin Panel Workflow Diagram</h2>
+        <p><strong>Save as:</strong> admin_workflow.png</p>
+        <div class="mermaid">
+          flowchart TD A[Admin Login] --> B{Validate} B -->|Invalid| C[Show
+          Error] C --> A B -->|Valid| D[Create Token] D --> E[Dashboard] E -->
+          F{Select Action} F -->|Statistics| G[View Dashboard] G -->
+          H[Auto-Refresh Stats] H --> G F -->|Manage Users| I[Users List] I -->
+          J{Action} J -->|Verify| K[Approve/Reject] J -->|Ban| L[Ban User] K -->
+          M[Update Status] L --> N[Log Action] F -->|Auctions| O[Auctions List]
+          O --> P{Action} P -->|View| Q[Show Details] P -->|Cancel| R[Cancel
+          Auction] F -->|Reports| S[Reports List] S --> T{Action} T -->|Warning|
+          U[Send Warning] T -->|Ban| V[Ban User] T -->|Dismiss| W[Resolve] F
+          -->|Logout| X[Clear Session] X --> Y[Redirect] M --> Z[End] N --> Z R
+          --> Z U --> Z V --> Z W --> Z Y --> Z style A fill:#90EE90 style D
+          fill:#87CEEB style M fill:#87CEEB style L fill:#FFA07A style V
+          fill:#FFA07A style Z fill:#FFB6C1
+        </div>
+      </div>
+
+      <!-- Diagram 9: Testing Flow -->
+      <div class="diagram-section" id="diagram9">
+        <span class="chapter-tag">Chapter 6: Testing</span>
+        <h2>9. Testing Process Flow Diagram</h2>
+        <p><strong>Save as:</strong> test_case_flow.png</p>
+        <div class="mermaid">
+          flowchart TD A[Start Testing] --> B[Define Objectives] B --> C[Create
+          Test Plan] C --> D{Test Type} D -->|Functional| E[Authentication
+          Tests] D -->|Functional| F[Auction Tests] D -->|Functional| G[Bidding
+          Tests] D -->|Non-Functional| H[Security Tests] D -->|Non-Functional|
+          I[Performance Tests] D -->|Non-Functional| J[Usability Tests] E -->
+          K[Execute Tests] F --> K G --> K H --> K I --> K J --> K K -->
+          L[Record Results] L --> M{Result} M -->|Pass| N[Mark Passed] M
+          -->|Fail| O[Log Defect] O --> P[Fix Issue] P --> Q[Retest] Q --> K N
+          --> R{All Complete?} R -->|No| K R -->|Yes| S[Generate Report] S -->
+          T{Pass Rate OK?} T -->|No| U[More Testing] U --> K T -->|Yes|
+          V[Approve] V --> W[End] style A fill:#90EE90 style N fill:#87CEEB
+          style O fill:#FFA07A style V fill:#FFD700 style W fill:#FFB6C1
+        </div>
+      </div>
+
+      <!-- Diagram 10: Future Roadmap -->
+      <div class="diagram-section" id="diagram10">
+        <span class="chapter-tag">Chapter 7: Conclusion</span>
+        <h2>10. Future Development Roadmap</h2>
+        <p><strong>Save as:</strong> future_roadmap.png</p>
+        <div class="mermaid">
+          gantt title Future Development Roadmap 2025-2026 dateFormat YYYY-MM-DD
+          section Phase 1 Payment Gateway :p1, 2025-12-01, 60d Email
+          Notifications :p2, 2025-12-15, 45d Two-Factor Auth :p3, 2026-01-01,
+          30d Mobile Responsive :p4, 2026-01-15, 25d section Phase 2 Android App
+          :m1, 2026-02-01, 45d iOS App :m2, 2026-03-18, 45d AI Recommendations
+          :m3, 2026-03-01, 60d Social Features :m4, 2026-04-01, 45d Analytics
+          Dashboard :m5, 2026-05-01, 40d section Phase 3 Live Video Integration
+          :l1, 2026-06-01, 60d Multi-language Support :l2, 2026-07-01, 45d
+          Blockchain Integration :l3, 2026-08-01, 90d BRTA Integration :l4,
+          2026-09-01, 60d Public API :l5, 2026-10-01, 45d
+        </div>
+      </div>
+    </div>
+
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        flowchart: {
+          useMaxWidth: true,
+          htmlLabels: true,
+          curve: "basis",
+        },
+        gantt: {
+          titleTopMargin: 25,
+          barHeight: 20,
+          fontSize: 11,
+        },
+      });
+
+      // Add download buttons
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("All diagrams loaded successfully!");
+        console.log(
+          "Use browser DevTools to capture individual diagram screenshots."
+        );
+      });
+    </script>
+  </body>
+</html>

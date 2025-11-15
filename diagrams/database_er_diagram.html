@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Database ER Diagram</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: white;
+      }
+      .mermaid {
+        background: white;
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Database Entity-Relationship Diagram</h2>
+    <div class="mermaid">
+      erDiagram USERS ||--o{ CARS : owns USERS ||--o{ BIDS : places USERS ||--o{
+      REPORTS : creates USERS ||--o{ AUCTIONS : wins CARS ||--|| AUCTIONS :
+      "listed in" CARS ||--o{ CAR_IMAGES : has AUCTIONS ||--o{ BIDS : receives
+      USERS { int id PK string full_name string user_name UK string email UK
+      string phone_number UK string profile_pic_url string location string
+      password enum profile_status timestamp created_at } CARS { int id PK int
+      user_id FK string title text description string image_url string make
+      string model year year enum body_type enum transmission_type enum
+      fuel_type int engine_capacity int mileage string registration_number year
+      registration_year enum ownership_status date tax_token_validity date
+      fitness_validity date insurance_validity enum accident_history enum
+      service_history enum car_condition enum status timestamp created_at }
+      AUCTIONS { int id PK int car_id FK int user_id FK decimal start_price
+      string auction_location datetime start_time datetime end_time decimal
+      current_highest_bid int buyer_id FK enum auction_status timestamp
+      created_at } BIDS { int id PK int auction_id FK int user_id FK decimal
+      bid_amount int bid timestamp created_at } CAR_IMAGES { int id PK int
+      car_id FK string file_name timestamp uploaded_at } REPORTS { int id PK int
+      user_id FK int auction_id FK text reason enum status timestamp created_at
+      }
+    </div>
+
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+      });
+    </script>
+  </body>
+</html>
